@@ -1,0 +1,15 @@
+{{#extend "default-layout"}}
+
+	{{#prepend "title"}}{{page.title}} - {{/prepend}}
+	
+	{{#replace "pageTitle"}}
+		<a id="pagetitle" href="#" title="{{blog.title}}">{{page.title}}</a>
+	{{/replace}}
+	
+	{{#replace "content"}}
+	  {{#with page.content}}
+	      {{> content/content}}
+	  {{/with}}
+	{{/replace}}
+	
+{{/extend}}
