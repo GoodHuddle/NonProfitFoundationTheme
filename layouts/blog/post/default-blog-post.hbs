@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Check if alternitive color scheme is choosen -->
+{{#section "head"}}
+<title>{{blogPost.title}}</title>
+<link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/resources/style.css" media="screen" />
+{{/section}}
+{{#section "scripts"}}
+<script type='text/javascript' src='/resources/js/jquery.js'></script>
+<script type='text/javascript' src='/resources/js/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='/resources/js/superfish.js'></script>
+<script type='text/javascript' src='/resources/js/slideshow.js'></script>
+<script type='text/javascript' src="/lib/bootstrap/js/bootstrap.min.js"></script>
+{{/section}}
+<!--[if IE 6]>
+<script type="text/javascript" src="js/pngfix.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie6.css" />
+<![endif]-->	
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie8.css" />
+<![endif]-->
+<!-- Start slideshow -->
+</head>
+<body >
+<div id="wrapper">
+	<div id="head_content">
+		<div id="head_wrap">
+			<div class="typeface-js" id="top-nav">
+				<a class="home" href="#" ></a>
+				<ul class="nav">
+					{{#each menu.items}}
+						<li class="page_item {{#if selected}}current_page_item{{/if}}">
+							<a href="{{url}}"><span class="menu">{{label}}</span></a>
+						</li>
+					{{/each}}
+				</ul> 
+			</div>
+			<div id="logo">
+				<a href="#" title=""><img src="/resources/images/logo.png" /></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="ribbon_content">
+		<div id="ribbon_title">
+			<h1 id="pagetitle">
+				<a id="pagetitle" href="#" title="{{blogPost.title}}">{{blogPost.title}}</a>
+			</h1>
+		</div>
+	</div>
+           
+	<div id="content" class="page col-full">
+		
+			<div id="main" class="col-left">
+				<div style="post type-post status-publish format-standard hentry category-uncategorized">
+					<p class="post-meta">
+					 by <span class="post-author">{{memberLink blogPost.author}}</span> | <span class="post-date">{{datetime blogPost.publishedOn}} |</span>
+					</p>
+					<div class="entry">
+						{{#with blogPost.content}}
+		           {{> content/content}}
+		        {{/with}}
+	        </div><br>
+	        <div id="comments">
+						<h3>One Response to “{{blogPost.title}}”</h3>
+						<ol class="commentlist">
+						<li class="comment even thread-even depth-1" id="li-comment-1">
+						<a name="comment-1"></a>
+						<div class="comment-container">
+						<div class="avatar"><img alt="" src="http://0.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=40" class="photo avatar avatar-40 photo avatar-default" height="40" width="40"></div>
+						<div class="comment-head">
+						<span class="name"><a href="#" rel="external nofollow" class="url url">{{memberLink blogPost.author}}</a></span>   
+						<div class="comment-meta">        
+						<span class="date">November 1, 2010 at 10:28 pm</span>
+						<span class="perma"><a href="#" title="Direct link to this comment">#</a></span>
+						<span class="edit"></span>
+						</div>
+						</div><!-- /.comment-head -->
+						<div class="comment-entry" id="comment-1">
+						<p>Hi, this is a comment.<br>To delete a comment, just log in and view the post's comments. There you will have the option to edit or delete them.</p>
+						<div class="reply">
+						<a class="comment-reply-link" href="#" onclick="return addComment.moveForm(&quot;comment-1&quot;, &quot;1&quot;, &quot;respond&quot;, &quot;1&quot;)">Reply</a>	            </div><!-- /.reply -->
+						</div><!-- /comment-entry -->
+						</div><!-- /.comment-container -->
+						</li><!-- #comment-## -->
+						</ol>    
+						<div class="navigation">
+						<div class="fl"></div>
+						<div class="fr"></div>
+						<div class="fix"></div>
+						</div><!-- /.navigation -->
+					</div>
+					<div id="respond">
+						<h3>Leave a Reply to <a href="#comment-1">{{memberLink blogPost.author}}</a></h3>
+						<div class="cancel-comment-reply">
+						<small><a rel="nofollow" id="cancel-comment-reply-link" href="/foundation/?p=1#respond">Click here to cancel reply.</a></small>
+						</div><!-- /.cancel-comment-reply -->
+						<form action="#" method="post" id="commentform">
+						<p><span>Name (required)</span>
+						<input type="text" name="author" class="txt" id="author" value="" size="22" tabindex="1">
+						<label for="author">Name (required)</label>
+						</p>
+						<p><span>Email (will not be published) (required)</span>
+						<input type="text" name="email" class="txt" id="email" value="" size="22" tabindex="2">
+						<label for="email">Mail (will not be published)  (Required) </label>
+						</p>
+						<p><span>Website</span>
+						<input type="text" name="url" class="txt" id="url" value="" size="22" tabindex="3">
+						<label for="url">Website</label>
+						</p>
+						<p><textarea name="comment" id="comment" rows="10" cols="50" tabindex="4"></textarea></p>
+						<input name="submit" type="submit" id="submit" class="submit" tabindex="5" value="Submit">
+						<input type="hidden" name="comment_post_ID" value="1">
+						<input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID">
+						<input type="hidden" name="comment_parent" id="comment_parent" value="1">
+						</form><!-- /#commentform -->
+						<div class="fix"></div>
+					</div>
+	      </div>
+			</div>
+			<div id="sidebar" class="col-right">
+				<div id="sidebar_content">
+					<div id="text-3" class="widget widget_text">
+						<h3>Our Vision<span>&nbsp;</span></h3>			
+						<div class="textwidget">Sample text widget. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea.</div>
+					</div> 
+				</div>
+			</div>
+		
+	</div><!-- /#content -->
+		
+
+	<div id="footer">
+		<div class="inner">
+			<ul class="nuv">
+			{{#each menu.items}}
+				<li class="page_item"><a href="{{url}}"><span class="menu">{{label}}</span></a></li>
+			{{/each}}
+			</ul>
+			<div id="social_foot">
+				<a target="_blank" href="#"><img src="/resources/images/fb_icon.png" /></a>
+				<a target="_blank" href="#"><img src="/resources/images/tw_icon.png" /></a>
+				<a href="#"><img src="/resources/images/rss_icon.png" /></a>
+			</div>			 
+			<div class="clear"></div>
+		</div>
+		<div id="copywrite">   
+			<p>&copy; 2014&nbsp;Non-Profit Foundation Theme. All rights Reserved.</p><a target="_blank" class="logo_icon" href="#">Non-Profit Theme</a>
+		</div>
+		<div class="fix"></div>
+	</div><!-- /#footer  -->
+</div><!-- /#wrapper -->
+</body>
+</html>

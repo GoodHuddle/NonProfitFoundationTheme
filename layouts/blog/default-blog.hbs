@@ -1,0 +1,136 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Check if alternitive color scheme is choosen -->
+{{#section "head"}}
+<title>{{blog.title}}</title>
+<link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/resources/style.css" media="screen" />
+{{/section}}
+{{#section "scripts"}}
+<script type='text/javascript' src='/resources/js/jquery.js'></script>
+<script type='text/javascript' src='/resources/js/jquery-migrate.min.js'></script>
+<script type='text/javascript' src='/resources/js/superfish.js'></script>
+<script type='text/javascript' src='/resources/js/slideshow.js'></script>
+<script type='text/javascript' src="/lib/bootstrap/js/bootstrap.min.js"></script>
+{{/section}}
+<!--[if IE 6]>
+<script type="text/javascript" src="js/pngfix.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie6.css" />
+<![endif]-->	
+<!--[if IE 7]>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie7.css" />
+<![endif]-->
+<!--[if IE 8]>
+<link rel="stylesheet" type="text/css" media="all" href="css/ie8.css" />
+<![endif]-->
+<!-- Start slideshow -->
+</head>
+<body >
+<div id="wrapper">
+	<div id="head_content">
+		<div id="head_wrap">
+			<div class="typeface-js" id="top-nav">
+				<a class="home" href="#" ></a>
+				<ul class="nav">
+					{{#each menu.items}}
+						<li class="page_item {{#if selected}}current_page_item{{/if}}">
+							<a href="{{url}}"><span class="menu">{{label}}</span></a>
+						</li>
+					{{/each}}
+				</ul> 
+			</div>
+			<div id="logo">
+				<a href="#" title=""><img src="/resources/images/logo.png" /></a>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="ribbon_content">
+		<div id="ribbon_title">
+			<h1 id="pagetitle">
+				<a id="pagetitle" href="#" title="{{blog.title}}">{{blog.title}}</a>
+			</h1>
+		</div>
+	</div>
+           
+	<div id="content" class="page col-full">
+		
+			<div id="main" class="col-left">
+				{{#each blogPosts}}
+					 {{#if featureImageUrl}}
+					 	<figure class="thumb col-md-2 col-sm-3 col-xs-4">
+              <img class="img-responsive" src="{{featureImageUrl}}"/>
+          	</figure>
+					 {{/if}}
+						<div class="blogpost">
+							<h2><a href="{{url}}" rel="bookmark">{{title}}</a></h2>
+							{{#if published}}
+								<div class="blog-posted">
+									{{datetime publishedOn}}&nbsp; | &nbsp; Posted by : {{memberLink author}}&nbsp;
+								</div>
+							{{/if}}
+							<div class="entry"><p>{{blurb}}</p>
+							<a href="{{url}}" rel="bookmark">Read More »</a><br><br><p></p></div>
+						</div>
+				{{/each}}
+				<div class="blog-pagination"><!-- page pagination -->                                       	     			
+      		<div class="navigation">
+      			<div class="alignleft">
+      				{{#unless blogPosts.first}}
+							<div class="newer">
+							  <a href="{{blog.url}}?page={{plus blogPosts.number -1}}">
+							      <i class="fa fa-arrow-left"></i> Newer posts
+							  </a>
+							</div>
+							{{/unless}}
+      			</div>
+      			<div class="alignright">
+      				{{#unless blogPosts.last}}
+							<div class="older">
+							  <a href="{{blog.url}}?page={{plus blogPosts.number 1}}">
+							      Older posts <i class="fa fa-arrow-right"></i>
+							  </a>
+							</div>
+							{{/unless}}
+      			</div>
+      			<div class="clear"></div>
+      		</div>
+         </div>			
+			</div>
+		
+
+		<div id="sidebar" class="col-right">
+			<div id="sidebar_content">
+				<div id="text-3" class="widget widget_text">
+					<h3>Our Vision<span>&nbsp;</span></h3>			
+					<div class="textwidget">Sample text widget. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea.</div>
+				</div> 
+			</div>
+		</div>
+	</div><!-- /#content -->
+		
+
+	<div id="footer">
+		<div class="inner">
+			<ul class="nuv">
+			{{#each menu.items}}
+				<li class="page_item"><a href="{{url}}"><span class="menu">{{label}}</span></a></li>
+			{{/each}}
+			</ul>
+			<div id="social_foot">
+				<a target="_blank" href="#"><img src="/resources/images/fb_icon.png" /></a>
+				<a target="_blank" href="#"><img src="/resources/images/tw_icon.png" /></a>
+				<a href="#"><img src="/resources/images/rss_icon.png" /></a>
+			</div>			 
+			<div class="clear"></div>
+		</div>
+		<div id="copywrite">   
+			<p>&copy; 2014&nbsp;Non-Profit Foundation Theme. All rights Reserved.</p><a target="_blank" class="logo_icon" href="#">Non-Profit Theme</a>
+		</div>
+		<div class="fix"></div>
+	</div><!-- /#footer  -->
+</div><!-- /#wrapper -->
+</body>
+</html>
