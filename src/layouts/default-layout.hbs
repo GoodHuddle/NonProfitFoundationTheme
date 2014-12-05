@@ -1,7 +1,6 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<!-- Check if alternitive color scheme is choosen -->
 <head>
 	{{#section "head"}}
 	<meta charset="utf-8"/>
@@ -23,8 +22,11 @@
 </head>
 <body >
 <div id="wrapper">
+	{{#section "openHeader"}}
 	<div id="head_content">
+	{{/section}}
 		<div id="head_wrap">
+			{{#section "headWrap"}}
 			<div class="typeface-js" id="top-nav">
 				<a class="home" href="#" ></a>
 				<ul class="nav">
@@ -39,8 +41,13 @@
 				<a href="#" title=""><img src="/resources/images/logo.png" /></a>
 			</div>
 			<div class="clear"></div>
+			{{/section}}
 		</div>
+	{{#section "closeHeader"}}
 	</div>
+	{{/section}}
+
+	{{#section "ribbon"}}
 	<div id="ribbon_content">
 		<div id="ribbon_title">
 			<h1 id="pagetitle">
@@ -50,12 +57,15 @@
 			</h1>
 		</div>
 	</div>
-           
+  {{/section}}
+  {{#section "openContent"}}
 	<div id="content" class="page col-full">
-		{{#section "content"}}
-		{{/section}}
+	{{/section}}	
+	{{#section "content"}}
+	{{/section}}
+	{{#section "closeContent"}}
 	</div><!-- /#content -->
-		
+	{{/section}}
 	{{#section "footer"}}
 	<div id="footer">
 		<div class="inner">
@@ -91,3 +101,5 @@
 {{/section}}
 </body>
 </html>
+
+
